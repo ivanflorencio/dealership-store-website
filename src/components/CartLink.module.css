@@ -1,0 +1,31 @@
+.cartLink {
+	border: solid 3.5px var(--color-bg);
+	padding: 0.4em 0.25em 0.25em 0.35em;
+	border-radius: 50%;
+	margin: 1em;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+	width: 50px;
+	height: 50px;
+	position: relative;
+	cursor: pointer;
+}
+.cartLink:hover {
+	box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.4);
+}
+.cartLink img {
+	width: 1.2em;
+	height: 1.2em;
+}
+
+.badge {
+	background-color: var(--color-primary);
+	color: var(--color-bg-ultra-light);
+	border-radius: 5px;
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	height: 22px;
+	width: 22px;
+	text-align: center;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
