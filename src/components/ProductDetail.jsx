@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Breadcrumbs from "./Breadcrumbs";
 import * as API from "../api";
 import { useCartContext } from "../context/CartContext";
+import { useCategoryContext } from "../context/CategoryContext";
 
 import styles from "./ProductDetail.module.css";
 
@@ -14,11 +15,14 @@ export default function ProductDetail({ product }) {
 	const [zoomedPhoto, setZoomedPhoto] = useState(null);
 	const [breadcrumbsItems, setBreadcrumbsItems] = useState(null);
 	const { addCartItem, cart } = useCartContext();
+	const { chooseCategory } = useCategoryContext();
 
 	useEffect(() => {
 		if (product) {
 			API.Product.getById(Number(product)).then((data) => {
 				setProductInfo(data);
+				const chosenCategory = data.category;
+				chooseCategory(chosenCategory.id);
 				setBreadcrumbsItems([
 					{ href: "/", title: "Home" },
 					{ href: "/category/" + data.category.id, title: data.category.name },

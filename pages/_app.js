@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import { CartContext, CartReducer } from "../src/context/CartContext";
+import { CategoryContext, CategoryReducer } from "../src/context/CategoryContext";
 
 import "../styles/globals.css";
 
@@ -15,10 +16,13 @@ function App({ Component, pageProps }) {
 	}
 
 	const [cartState, cartDispatch] = useReducer(CartReducer, initialCartState);
+	const [categoryState, categoryDispatch] = useReducer(CategoryReducer, []);
 
 	return (
 		<CartContext.Provider value={{ state: cartState, dispatch: cartDispatch }}>
-			<Component {...pageProps} />
+			<CategoryContext.Provider value={{ state: categoryState, dispatch: categoryDispatch }}>
+				<Component {...pageProps} />
+			</CategoryContext.Provider>
 		</CartContext.Provider>
 	);
 }

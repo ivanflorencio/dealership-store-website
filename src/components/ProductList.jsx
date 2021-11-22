@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import * as API from "../api";
+import { useCategoryContext } from "../context/CategoryContext";
 
 import Breadcrumbs from "../../src/components/Breadcrumbs";
 import styles from "./ProductList.module.css";
@@ -11,21 +12,24 @@ export default function ProductList({ category }) {
 	//
 	const [productList, setProductListt] = useState([]);
 	const [breadcrumbsItems, setBreadcrumbsItems] = useState(null);
+	const { chooseCategory } = useCategoryContext();
 
 	useEffect(() => {
 		API.Product.getAll().then((data) => {
 			if (category) {
 				const filteredProducts = data.results.filter((i) => i.category.id === Number(category));
+				const chosenCategory = filteredProducts[0]?.category;
+				chooseCategory(chosenCategory.id);
 				setProductListt(filteredProducts);
 				setBreadcrumbsItems([
 					{ href: "/", title: "Home" },
-					{ href: "/category/" + category, title: filteredProducts[0].category.name },
+					{ href: "/category/" + category, title: chosenCategory.name },
 				]);
 			} else {
 				setProductListt(data.results);
 			}
 		});
-	}, [category]);
+	}, [category]); // eslint-disable-line react-hooks/exhaustive-deps
 
 	return (
 		<>

@@ -1,10 +1,14 @@
 :root {
 	--color-primary: #ff6d00;
 	--color-primary-dark: #c55205;
+	--color-alert: rgb(230, 49, 17);
 	--color-secondary: #37474f;
 	--color-bg: #c5cae9;
 	--color-bg-light: #e8eaf6;
 	--color-bg-ultra-light: #fff;
+}
+html {
+	overflow-y: scroll;
 }
 html,
 body {
@@ -22,4 +26,19 @@ a {
 * {
 	box-sizing: border-box;
 	transition: all 0.3s ease-in-out;
+}
+.tx-center {
+	text-align: center;
+}
+.tx-right {
+	text-align: right;
+}
+.bold {
+	font-weight: bold;
+}
+.w100 {
+	width: 100px;
+}
+.p5 {
+	padding: 5px;
 }
