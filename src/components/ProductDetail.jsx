@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import Breadcrumbs from "./Breadcrumbs";
+import Link from "next/link";
+
 import * as API from "../api";
+import Breadcrumbs from "./Breadcrumbs";
 import { useCartContext } from "../context/CartContext";
 import { useCategoryContext } from "../context/CategoryContext";
 
@@ -30,7 +31,7 @@ export default function ProductDetail({ product }) {
 				]);
 			});
 		}
-	}, [product]);
+	}, [product]); // eslint-disable-line react-hooks/exhaustive-deps
 
 	useEffect(() => {
 		if (product && cart) {
