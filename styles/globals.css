@@ -1,15 +1,16 @@
 :root {
 	--color-primary: #ff6d00;
+	--color-primary-dark: #c55205;
 	--color-secondary: #37474f;
 	--color-bg: #c5cae9;
 	--color-bg-light: #e8eaf6;
-	--color-bg-ultra-light: #fdfdfd;
+	--color-bg-ultra-light: #fff;
 }
 html,
 body {
 	padding: 0;
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: Roboto, sans-serif;
 	background-color: var(--color-bg-light);
 }
 

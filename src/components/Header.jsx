@@ -22,6 +22,8 @@ export default function Header() {
 	useEffect(() => {
 		if (router.asPath.startsWith("/category/")) {
 			setSelectedCategory(router.query.id);
+		} else if (router.asPath.startsWith("/product/")) {
+			setSelectedCategory(100);
 		}
 	}, [router]);
 
@@ -54,6 +56,11 @@ export default function Header() {
 							<Link href={`/category/${category.id}`}>{category.name}</Link>
 						</li>
 					))}
+				</ul>
+				<ul>
+					<li>
+						<Link href="/login">Login</Link>
+					</li>
 				</ul>
 			</div>
 		</header>

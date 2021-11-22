@@ -37,7 +37,7 @@
 .card h2 small {
 	color: var(--color-primary);
 	display: block;
-	font-weight: 100;
+	font-weight: 300;
 	font-size: 0.6em;
 }
 .card p {
